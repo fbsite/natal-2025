@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="google-site-verification" content="lySpV3Z5LqZ5mwJxAbqtRAXeW5JZr-M15dWHAFngtLI" />
     
     <!-- Metadados SEO para o Post Otimizado -->
     <title>Natal 2025: Os 10 Melhores Produtos com Ofertas Exclusivas (Estoque Limitado!)</title>
@@ -52,7 +50,7 @@
         "name": "Os links têm desconto real?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sim! São cupons exclusivos ativados automaticamente ao clicar. Eles não estão visíveis publicamente nos sites das lojas."
+          "text": "Sim! São cupões exclusivos de afiliado ativados automaticamente ao clicar. Eles não estão visíveis publicamente nos sites das lojas."
         }
       },{
         "@type": "Question",
@@ -456,9 +454,35 @@
         <p class="text-sm text-gray-500 mt-2">Este site pode conter links de afiliado. Ao comprar através deles, recebemos uma comissão sem custo adicional para si.</p>
     </footer>
 
+    <!-- Banner de Cookies LGPD -->
+    <div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 shadow-lg z-50 flex flex-col md:flex-row justify-between items-center transition-transform duration-300 ease-out">
+        <p class="text-sm text-gray-300 text-center md:text-left mb-2 md:mb-0">
+            Este site usa cookies para garantir que você obtenha a melhor experiência. Ao continuar a navegar, você concorda com nosso uso de cookies, de acordo com a LGPD.
+        </D>
+        <button id="accept-cookie" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg ml-0 md:ml-4 mt-2 md:mt-0 whitespace-nowrap cta-button">
+            Entendido, Aceito!
+        </button>
+    </div>
+
     <!-- SCRIPT DO CONTADOR REGRESSIVO (Formato "dias") -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Lógica do Banner de Cookies LGPD
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptCookieButton = document.getElementById('accept-cookie');
+
+            if (cookieBanner && acceptCookieButton) {
+                if (localStorage.getItem('cookie_consent') !== 'accepted') {
+                    cookieBanner.classList.remove('hidden');
+                }
+
+                acceptCookieButton.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'accepted');
+                    cookieBanner.classList.add('hidden');
+                });
+            }
+
+            // Lógica do Contador Regressivo
             const countdownElement = document.getElementById('countdown');
             const daysElement = document.getElementById('days');
             if (!countdownElement || !daysElement) return;
